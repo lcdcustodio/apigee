@@ -1,16 +1,10 @@
-Springboot Demo with Prometheus
+Setting up your Apigee environment
 ===========================
 --------------
 
-1- Intro
+1- What is Apigee?
 ===========================
-Monitoring an application's health and metrics helps us manage it better, notice unoptimized behavior and get closer to its performance. In this Demo, we'll cover how to monitor Spring Boot web applications. We will be using four projects to achieve this:
-
-- **Spring Boot Actuator:** a sub-project of the Spring Boot Framework. It uses HTTP endpoints to expose health and monitoring metrics from applications
-- **Micrometer:** Exposes the metrics from our application
-- **Prometheus:** Stores our metric data
-- **Grafana:** Visualizes our data in graphs
-
+Apigee is a platform for developing and managing APIs. By fronting services with a proxy layer, Apigee provides an abstraction or facade for your backend service APIs and provides security, rate limiting, quotas, analytics, and more.
 
 
 
