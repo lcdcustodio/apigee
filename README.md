@@ -1,12 +1,11 @@
 Setting up your Apigee environment
-===========================
 --------------
 
-1- What is Apigee?
+What is Apigee?
 ===========================
 Apigee is a platform for developing and managing APIs. By fronting services with a proxy layer, Apigee provides an abstraction or facade for your backend service APIs and provides security, rate limiting, quotas, analytics, and more.
 
-
+In this scenario Apigee was connected to GKE cluster with REST API up and  in order to expose its
 
 ## Spring Boot Actuator
 
