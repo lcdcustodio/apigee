@@ -28,11 +28,11 @@ In this Demo Apigee was connected to Google Kubernetes Engine (GKE) cluster with
 * Enable Google Kubernetes Engine (GKE)
 * Create a GKE Cluster 
 
-<kbd>![Alt text](/pictures/02.png "Flask application")</kbd>
+<kbd>![Alt text](/pictures/02.png "Flask application")</kbd>__
 <br />
-<kbd>![Alt text](/pictures/03.png "Flask application")</kbd>
+<kbd>![Alt text](/pictures/03.png "Flask application")</kbd>__
 <br />
-<kbd>![Alt text](/pictures/04.png "Flask application")</kbd>
+<kbd>![Alt text](/pictures/04.png "Flask application")</kbd>__
 
 
 
