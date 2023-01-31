@@ -25,6 +25,15 @@ In this Demo Apigee was connected to Google Kubernetes Engine (GKE) cluster with
     docker push gcr.io/<GCLOUD PROJECT  NAME>/webapp
 ```
 
+* Enable Google Kubernetes Engine (GKE)
+* Create a GKE Cluster 
+
+<kbd>![Alt text](/pictures/02.png "Flask application")</kbd>
+<kbd>![Alt text](/pictures/03.png "Flask application")</kbd>
+<kbd>![Alt text](/pictures/04.png "Flask application")</kbd>
+
+
+
 As you can see, we have a scrape_configs root key where we can define a list of jobs and specify the URL, metrics path, and the interval. If you'd like to read more about Prometheus configurations, feel free to visit the [official documentation](https://prometheus.io/docs/prometheus/latest/configuration/configuration/).
 
 **Note:** Since we are going to use Docker to run Prometheus, Docker network that won't understand localhost as you might expect. Since our app is going to run on localhost, and for the Docker container, localhost means its own network, we have to specify our system IP in place of it.
