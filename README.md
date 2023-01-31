@@ -19,8 +19,8 @@ In this Demo Apigee was connected to Google Kubernetes Engine (GKE) cluster with
     * cd webapp
     * docker build -t webapp .
     * gcloud projects list
-    * docker tag webapp gcr.io/<GCLOUD PROJECT>/webapp     
-    * docker push gcr.io/<GCLOUD PROJECT>/webapp
+    * docker tag webapp gcr.io/_<_GCLOUD PROJECT_>_/webapp     
+    * docker push gcr.io/_<_GCLOUD PROJECT_>_/webapp
 
 As you can see, we have a scrape_configs root key where we can define a list of jobs and specify the URL, metrics path, and the interval. If you'd like to read more about Prometheus configurations, feel free to visit the [official documentation](https://prometheus.io/docs/prometheus/latest/configuration/configuration/).
 
