@@ -9,14 +9,11 @@ In this Demo Apigee was connected to Google Kubernetes Engine (GKE) cluster with
 
 ## Step by step to switch on GKE
 
-* Bullet list
-
-```sh
-    1 -   
-```
+* Enable Google Container Registry
+* Enable Google Cloud Shell and then upload the Flask application
 
 
-<kbd>![Alt text](/pictures/01.png "Prometheus yaml file")</kbd>
+<kbd>![Alt text](/pictures/01.png "Flask application")</kbd>
 
 As you can see, we have a scrape_configs root key where we can define a list of jobs and specify the URL, metrics path, and the interval. If you'd like to read more about Prometheus configurations, feel free to visit the [official documentation](https://prometheus.io/docs/prometheus/latest/configuration/configuration/).
 
