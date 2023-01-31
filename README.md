@@ -5,52 +5,16 @@ What is Apigee?
 ===========================
 Apigee is a platform for developing and managing APIs. By fronting services with a proxy layer, Apigee provides an abstraction or facade for your backend service APIs and provides security, rate limiting, quotas, analytics, and more.
 
-In this scenario Apigee was connected to GKE cluster with REST API up and  in order to expose its
+In this Demo Apigee was connected to Google Kubernetes Engine (GKE) cluster with REST API up and running in order to expose its services (Flask application) through Proxy API.
 
-## Spring Boot Actuator
+## Step by step to switch on GKE
 
-To use Actuator in your application, you need to enable the spring-boot-actuator dependency in pom.xml:
-
-```sh
-    <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-actuator</artifactId>
-    </dependency>
-```
-
-Dependency provides production-ready endpoints that you can use for your application. These endpoints (/health, /metrics, /mappings, etc.) are common prefix of /actuator and are, by default, protected. Expose them individually, or all at once, by adding the following properties in application.properties:
+* Bullet list
 
 ```sh
-    management.endpoints.web.exposure.include=*
+    1 -   
 ```
 
-Spring Boot Actuator shares a lot of information about your application, but it's not very user-friendly. It can be integrated with Spring Boot Admin for visualization, but it has its limitations and is less popular.
-
-Tools like Prometheus, Netflix Atlas, and Grafana are more commonly used for the monitoring and visualization and are language/framework-independent.
-
-Each of these tools has its own set of data formats and converting the /metrics data for each one would be a pain. To avoid converting them ourselves, we need a vendor-neutral data provider, such as Micrometer.
-
-## Micrometer
-
-To solve this problem of being a vendor-neutral data provider, Micrometer came to be. It exposes Actuator metrics to external monitoring systems such as Prometheus, Netflix Atlas, AWS Cloudwatch, and many more.
-
-Micrometer automatically exposes /actuator/metrics data into something your monitoring system can understand. All you need to do is include that vendor-specific micrometer dependency in your application.
-
-Micrometer is a separate open-sourced project and is not in the Spring ecosystem, so we have to explicitly add it as a dependency. Since we will be using Prometheus, let's add it's specific dependency in our pom.xml:
-
-```
-    <dependency>
-        <groupId>io.micrometer</groupId>
-        <artifactId>micrometer-registry-prometheus</artifactId>
-    </dependency>
-```
-This will generate a new endpoint - /actuator/prometheus. Opening it, you will see data formatted specific for **Prometheus**.
-
-## Prometheus
-
-Prometheus is a time-series database that stores our metric data by pulling it (using a built-in data scraper) periodically over HTTP. The intervals between pulls can be configured, of course, and we have to provide the URL to pull from. It also has a simple user interface where we can visualize/query on all of the collected metrics.
-
-Let's configure Prometheus, and more precisely the scrape interval, the targets, etc. To do that, we'll be using the prometheus.yml file:
 
 <kbd>![Alt text](/pictures/01.png "Prometheus yaml file")</kbd>
 
