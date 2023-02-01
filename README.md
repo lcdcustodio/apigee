@@ -34,7 +34,10 @@ In this Demo Apigee was connected to Google Kubernetes Engine (GKE) cluster with
 
 <kbd>![Alt text](/pictures/04.png "Flask application")</kbd> 
 
-* Create a GKE Cluster 
+* Next step is go to Container Registry and then click on application image
+
+<kbd>![Alt text](/pictures/05.png "Flask application")</kbd> 
+
 
 As you can see, we have a scrape_configs root key where we can define a list of jobs and specify the URL, metrics path, and the interval. If you'd like to read more about Prometheus configurations, feel free to visit the [official documentation](https://prometheus.io/docs/prometheus/latest/configuration/configuration/).
 
