@@ -54,7 +54,21 @@ In this Demo Apigee was connected to Google Kubernetes Engine (GKE) cluster with
 
 <kbd>![Alt text](/pictures/09.png "Flask application")</kbd> 
 
+* The application is up and running inside GKE Cluster. However, there is no way to access externally until this moment. So let's click on Expose button:
 
+<kbd>![Alt text](/pictures/10.png "Flask application")</kbd> 
+
+* By default, flask application runs at 5000 port. At this moment is time to map destination port properly.
+
+<kbd>![Alt text](/pictures/11.png "Flask application")</kbd> 
+
+* That is it! The application is exposed by public IP address.
+
+<kbd>![Alt text](/pictures/12.png "Flask application")</kbd> 
+
+GKE steps was ended. Now let's take a look on ApiGee side.
+
+## Step by step to switch on ApiGee
 
 
 As you can see, we have a scrape_configs root key where we can define a list of jobs and specify the URL, metrics path, and the interval. If you'd like to read more about Prometheus configurations, feel free to visit the [official documentation](https://prometheus.io/docs/prometheus/latest/configuration/configuration/).
