@@ -74,104 +74,34 @@ GKE steps was ended. Now let's take a look on ApiGee side.
 
 Getting Started with Apigee API Management [Setting up your Apigee environment](https://www.youtube.com/watch?v=4jxAcZdeZqk&t=91s).
 
-**Note:** Since we are going to use Docker to run Prometheus, Docker network that won't understand localhost as you might expect. Since our app is going to run on localhost, and for the Docker container, localhost means its own network, we have to specify our system IP in place of it.
+A quite simple approach to enable ApiGee as API proxy for GKE application.
 
-So instead of using locahost:8080, 192.168.0.20:8080 is used where 192.168.0.20 is my PC IP at the moment.
+* On GCP Navigation Menu select Apigee API Management option and then ApiGee. In the ApiGee page click on Open ApiGee Console
 
-To check your system IP you can run ipconfig or ifconfig in your terminal, depending upon your OS.
+<kbd>![Alt text](/pictures/14.png "Flask application")</kbd> 
 
-## Grafana
+* Click on Api Proxies
 
-Grafana is a visualization layer that offers a rich UI where you can build up custom graphs quickly and create a dashboard out of many graphs faster. You can also import many community built dashboards for free and get going.
+<kbd>![Alt text](/pictures/15.png "Flask application")</kbd>
 
-Grafana can pull data from various data sources like Prometheus, Elasticsearch, InfluxDB, etc. It also allows you to set rule-based alerts, which then can notify you over Slack, Email, Hipchat, and similar.
+* Create a new Api Proxy
 
+<kbd>![Alt text](/pictures/16.png "Flask application")</kbd>
 
-------------
+* Choose Reverse proxy (most commom)
 
-2- Installation
-===========================
+<kbd>![Alt text](/pictures/17.png "Flask application")</kbd>
 
-First of all, let’s clone the repository and build the application:
+* Define base path. Proxy will handle request on hostname/base-path.
 
-```sh
-    git clone https://github.com/lcdcustodio/springboot_demo_prometheus.git
-    cd springboot_demo_prometheus
-    mvn clean install
-```    
+* Policies setting. For a quite simple approach was chosen Pass through option
 
-Once the Maven build is finished, the deployment archive has been created in target folder. Now, we be able to create image and run the container:  
+<kbd>![Alt text](/pictures/19.png "Flask application")</kbd>
 
-```sh
-    # Create container
-    docker build -t springboot_demo_prometheus .
-```
+* Review setting through summary view and then click on Create and Deploy
 
-```sh    
-    # Run container
-    docker run -p 8080:8080 springboot_demo_prometheus
-```    
+<kbd>![Alt text](/pictures/19.png "Flask application")</kbd>
 
-We can see the application up and running at:
+* That is it! Proxy API is up and running
 
-```sh
-    http://localhost:8080/hello-world
-```    
-
-All of metrics, including prometheus, are exposed by:
-
-```sh
-    http://localhost:8080/actuator
-    http://localhost:8080/actuator/prometheus
-```    
-
-Now, we can run Prometheus using the Docker command:
-
-
-```sh
-    docker run -d -p 9090:9090 -v $PWD/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus
-```    
-
-
-To see Prometheus dashboard, navigate your browser to **http://localhost:9090:**
-
-<kbd>![Alt text](/pictures/prometheus.png "Welcome Prometheus")</kbd>
-
-To check if Prometheus is actually listening to the Spring app, you can go to the /targets endpoint:
-
-<kbd>![Alt text](/pictures/prometheus_target.png "Prometheus Target")</kbd>
-
-
-Let's start  by running **Grafana** using Docker:
-
-
-```sh
-    docker run -d -p 3000:3000 grafana/grafana
-```    
-
-If you visit **http://localhost:3000**, you will be redirected to a login page. The default username is admin and the default password is admin. You can change these in the next step, which is highly recommended:
-
-<kbd>![Alt text](/pictures/grafana.png "Grafana")</kbd>
-
-Since Grafana works with many data sources, we need to define which one we're relying on. Select Prometheus as your data source:
-
-<kbd>![Alt text](/pictures/grafana_ds_1.png "Grafana DataSource")</kbd>
-
-**Note:** Since we are going to use Docker to run Grafana, Docker network that won't understand localhost as you might expect. Localhost means its own network, we have to specify our system IP in place of it in order to connect Prometheus Data Source
-
-<kbd>![Alt text](/pictures/grafana_ds_2.png "Grafana Prometheus Ready")</kbd>
-
-As previously said, Grafana has a ton of pre-built [dashboards](https://grafana.com/grafana/dashboards/). For Spring Boot projects, the [JVM dashboard](https://grafana.com/grafana/dashboards/4701-jvm-micrometer/) is popular:
-
-<kbd>![Alt text](/pictures/grafana_import.png "Grafana Import")</kbd>
-
-Input the URL for the dashboard, select "Already created Prometheus datasource" and then click Import:
-
-<kbd>![Alt text](/pictures/grafana_outcome.png "Grafana Outcomes")</kbd>
-
----------
-
-In this Demo, we used Micrometer to reformat the metrics data provided by Spring Boot Actuator and expose it in a new endpoint. This data was then regularly pulled and stored by Prometheus, which is a time-series database. Ultimately, we've used Grafana to visualize this information with a user-friendly dashboard.
-
-
-[Reference](https://stackabuse.com/monitoring-spring-boot-apps-with-micrometer-prometheus-and-grafana/)
+<kbd>![Alt text](/pictures/20.png "Flask application")</kbd>
